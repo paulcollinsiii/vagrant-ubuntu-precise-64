@@ -16,6 +16,13 @@ echo "UseDNS no" >> /etc/ssh/sshd_config
 # get chef
 gem install chef --no-rdoc --no-ri
 
+# Install a modern version of puppet and puppet-librarian
+wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb
+dpkg -i puppetlabs-release-precise.deb
+apt-get update
+apt-get install -y puppet git
+gem install librarian-puppet
+
 # display login promt after boot
 sed "s/quiet splash//" /etc/default/grub > /tmp/grub
 mv /tmp/grub /etc/default/grub

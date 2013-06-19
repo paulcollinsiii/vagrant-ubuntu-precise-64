@@ -9,8 +9,8 @@ set -o errexit
 
 # Configurations
 BOX="ubuntu-precise-64"
-ISO_URL="http://releases.ubuntu.com/precise/ubuntu-12.04-alternate-amd64.iso"
-ISO_MD5="9fcc322536575dda5879c279f0b142d7"
+ISO_URL="http://releases.ubuntu.com/precise/ubuntu-12.04.2-server-amd64.iso"
+ISO_MD5="af5f788aee1b32c4b2634734309cc9e9"
 
 # location, location, location
 FOLDER_BASE=`pwd`
@@ -57,7 +57,7 @@ echo "Creating Custom ISO"
 if [ ! -e "${FOLDER_ISO}/custom.iso" ]; then
 
   echo "Untarring downloaded ISO ..."
-  tar -C "${FOLDER_ISO_CUSTOM}" -xf "${ISO_FILENAME}"
+  bsdtar -C "${FOLDER_ISO_CUSTOM}" -xf "${ISO_FILENAME}"
 
   # backup initrd.gz
   echo "Backing up current init.rd ..."
